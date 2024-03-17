@@ -1,5 +1,4 @@
-import React from "react";
-import {products} from "../products";
+/* import React from "react";
 
 const Product = ({ product }) => {
   return (
@@ -25,21 +24,12 @@ const Product = ({ product }) => {
           className="block w-full select-none rounded-lg bg-blue-gray-200 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-blue-gray-900 transition-all hover:scale-105 focus:scale-105 focus:opacity-[0.85] active:scale-100 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
           type="button"
         >
-          Add to Cart
+          Compare
         </button>
       </div>
     </div>
   );
 };
 
-const ProductList = () => {
-  return (
-    <div className="grid grid-cols-3 gap-8">
-      {products.map((product) => (
-        <Product key={product.id} product={product} />
-      ))}
-    </div>
-  );
-};
-
-export default ProductList;
+export default Product;
+ */
