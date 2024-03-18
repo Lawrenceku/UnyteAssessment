@@ -53,34 +53,35 @@ const SearchBar = () => {
 
     {selectedProducts.length === 2 && (
       <>
-      <div className="fixed inset-0 flex justify-center items-center z-20">
-  <div className="absolute inset-0 bg-black opacity-50"></div>
-  <div className="relative z-10 flex flex-col max-h-full overflow-hidden">
-            <div className="flex">
-        {selectedProducts.map((product) => (
-          <ProductComparison key={product.id} product={product} />
-        ))}
+<div className="fixed inset-0 flex justify-center items-center z-20">
+    <div className="absolute inset-0 bg-gray-400 opacity-50  z-10"></div>
+
+    <div className="relative z-10 max-h-full overflow-hidden">
+        <div className="flex justify-center items-start">
+            {selectedProducts.map((product) => (
+                <ProductComparison key={product.id} product={product} />
+            ))}
         </div>
         <button
-        onClick={event=>setSelectedProducts([])}
-          className="absolute top-0 right-0 bg-gray-100 p-2 rounded-full text-gray-400 hover:text-gray-600 hover:bg-gray-50 duration-200"
+            onClick={event => setSelectedProducts([])}
+            className="absolute top-0 right-0 bg-gray-100 p-2 rounded-full text-gray-400 hover:text-gray-600 hover:bg-gray-50 duration-200"
         >
-          <svg
-            className="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M6 18L18 6M6 6l12 12"
-            />
-          </svg>
+            <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M6 18L18 6M6 6l12 12"
+                />
+            </svg>
         </button>
-        </div>
+    </div>
 </div>
       </>
     )}
