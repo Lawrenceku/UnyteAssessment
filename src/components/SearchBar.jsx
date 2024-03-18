@@ -1,11 +1,34 @@
 import React, { useState } from "react";
 import { products } from "../products";
-import Product from "./Product"; // Assuming Product component is defined in a separate file
+import Product from "./Product";
+import ProductComparison from "./ProductComparison";
 
 const SearchBar = () => {
     const [inputSearch, setInputSearch] = useState('');
     const [searchItem, setSearchItem] = useState('');
-
+    const [selectedProducts, setSelectedProducts] = useState([]);
+    
+    const handleProductSelect = (product) => {
+        // Check if the product is already in the selectedProducts array
+        const index = selectedProducts.findIndex((p) => p.id === product.id);
+    
+        // If the product is not in the array, add it; otherwise, remove it
+        if (index === -1) {
+            if (selectedProducts.length < 2) {
+                setSelectedProducts((prevSelectedProducts) => [
+                    ...prevSelectedProducts,
+                    product,
+                ]);
+            } else {
+                alert("You can only compare up to 2 products.");
+            }
+        } else {
+            setSelectedProducts((prevSelectedProducts) =>
+                prevSelectedProducts.filter((p) => p.id !== product.id)
+            );
+        }
+    };
+    
     // Filter products based on search criteria
     const filteredProducts = products.filter((product) => {
         return (
@@ -18,14 +41,52 @@ const SearchBar = () => {
     // JSX to render products or 'Item Not Found' message
     const productsToRender = filteredProducts.length > 0 ? (
         filteredProducts.map((product) => (
-            <Product key={product.id} product={product} />
+            <Product key={product.id} product={product} onSelectProduct={handleProductSelect} />
         ))
     ) : (
         <div className="text-gray-300 font-md text-2xl max-w-2xl mx-auto mt-8 mx-auto">Item Not Found</div>
     );
 
+
     return (
         <>
+
+    {selectedProducts.length === 2 && (
+      <>
+      <div className="fixed inset-0 flex justify-center items-center z-20">
+  <div className="absolute inset-0 bg-black opacity-50"></div>
+  <div className="relative z-10 flex flex-col max-h-full overflow-hidden">
+            <div className="flex">
+        {selectedProducts.map((product) => (
+          <ProductComparison key={product.id} product={product} />
+        ))}
+        </div>
+        <button
+        onClick={event=>setSelectedProducts([])}
+          className="absolute top-0 right-0 bg-gray-100 p-2 rounded-full text-gray-400 hover:text-gray-600 hover:bg-gray-50 duration-200"
+        >
+          <svg
+            className="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+        </div>
+</div>
+      </>
+    )}
+
+
+
             <div className='bg-[#050505] p-4 sticky top-0 z-10'>
                 <div className="max-w-2xl mx-auto">
                     <label htmlFor="default-search" className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-gray-300">Search</label>
