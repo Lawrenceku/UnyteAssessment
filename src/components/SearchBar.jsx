@@ -91,7 +91,6 @@ const SearchBar = () => {
 </div>
       </>
     )}
-{selectedProducts.length === 2 && (document.body.style.padding = '20px'  , null)}
 {selectedProducts.length === 2 && (document.body.style.overflow = 'hidden'  , null)}
 
 
