@@ -7,6 +7,7 @@ const SearchBar = () => {
     const [inputSearch, setInputSearch] = useState('');
     const [searchItem, setSearchItem] = useState('');
     const [selectedProducts, setSelectedProducts] = useState([]);
+    const [max, setMax] = useState()
     
     const handleProductSelect = (product) => {
         // Check if the product is already in the selectedProducts array
@@ -20,9 +21,11 @@ const SearchBar = () => {
                     product,
                 ]);
             } else {
+                setMax(true)
                 alert("You can only compare up to 2 products.");
             }
         } else {
+            setMax(true)
             setSelectedProducts((prevSelectedProducts) =>
                 prevSelectedProducts.filter((p) => p.id !== product.id)
             );
@@ -41,7 +44,7 @@ const SearchBar = () => {
     // JSX to render products or 'Item Not Found' message
     const productsToRender = filteredProducts.length > 0 ? (
         filteredProducts.map((product) => (
-            <Product key={product.id} product={product} onSelectProduct={handleProductSelect} />
+            <Product maximum={max} key={product.id} product={product} onSelectProduct={handleProductSelect} />
         ))
     ) : (
         <div className="text-gray-300 font-md text-2xl max-w-2xl mx-auto mt-8 mx-auto">Item Not Found</div>
@@ -51,7 +54,7 @@ const SearchBar = () => {
     return (
         <>
 
-    {selectedProducts.length === 2 && (
+    {selectedProducts.length === 2  && ( 
       <>
 <div className="fixed inset-0 flex justify-center items-center z-20">
     <div className="absolute inset-0 bg-gray-400 opacity-50  z-10"></div>
@@ -63,7 +66,7 @@ const SearchBar = () => {
             ))}
         </div>
         <button
-            onClick={event => setSelectedProducts([])}
+            onClick={event =>{ setSelectedProducts([]); setMax(false)}}
             className="absolute top-0 right-0 bg-gray-100 p-2 rounded-full text-gray-400 hover:text-gray-600 hover:bg-gray-50 duration-200"
         >
             <svg
