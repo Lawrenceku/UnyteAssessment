@@ -20,18 +20,21 @@ const SearchBar = () => {
                     ...prevSelectedProducts,
                     product,
                 ]);
-            } else {
+                setMax(false)
+            }
+             else {
                 setMax(true)
                 alert("You can only compare up to 2 products.");
             }
         } else {
-            setMax(true)
+            setMax(false)
             setSelectedProducts((prevSelectedProducts) =>
                 prevSelectedProducts.filter((p) => p.id !== product.id)
             );
         }
     };
-    
+
+
     // Filter products based on search criteria
     const filteredProducts = products.filter((product) => {
         return (
@@ -56,18 +59,18 @@ const SearchBar = () => {
 
     {selectedProducts.length === 2  && ( 
       <>
-<div className="fixed inset-0 flex justify-center items-center z-20">
-    <div className="absolute inset-0 bg-gray-400 opacity-50  z-10"></div>
+<div id="container" className="fixed inset-0 flex justify-center items-center z-20">
+    <div className="absolute inset-0 bg-gray-900 opacity-90  z-10"></div>
 
-    <div className="relative z-10 max-h-full overflow-hidden">
+    <div className="relative z-10 max-h-full w-full overflow-hidden">
         <div className="flex justify-center items-start">
             {selectedProducts.map((product) => (
                 <ProductComparison key={product.id} product={product} />
             ))}
         </div>
         <button
-            onClick={event =>{ setSelectedProducts([]); setMax(false)}}
-            className="absolute top-0 right-0 bg-gray-100 p-2 rounded-full text-gray-400 hover:text-gray-600 hover:bg-gray-50 duration-200"
+            onClick={event =>{ setSelectedProducts([]); setMax(true); document.body.style.overflow = 'auto';}}
+            className="absolute top-2 right-2 bg-slate-50 p-2 rounded-full text-gray-400 hover:text-gray-600 hover:scale-110 hover:bg-gray-50 duration-200"
         >
             <svg
                 className="w-6 h-6"
@@ -88,6 +91,8 @@ const SearchBar = () => {
 </div>
       </>
     )}
+{selectedProducts.length === 2 && (document.body.style.padding = '20px'  , null)}
+{selectedProducts.length === 2 && (document.body.style.overflow = 'hidden'  , null)}
 
 
 

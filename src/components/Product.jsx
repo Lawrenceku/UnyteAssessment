@@ -6,7 +6,7 @@ const Product = ({ product, onSelectProduct, maximum }) => {
 
   const handleCompareClick = () => {
     onSelectProduct(product);
-    setIsActive(!isActive)    
+    if (!maximum){setIsActive(!isActive) }
   };
 
   return (
