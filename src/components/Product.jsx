@@ -1,12 +1,15 @@
 import React from "react";
+
 import { useState, useEffect } from "react";
 
-const Product = ({ product, onSelectProduct, maximum }) => {
+const Product = ({ product, onSelectProduct, max }) => {
   const [isActive, setIsActive] = useState(false);
 
   const handleCompareClick = () => {
-    onSelectProduct(product);
-    if (!maximum){setIsActive(!isActive) }
+    if (!max){
+      onSelectProduct(product);
+      setIsActive(!isActive)
+     }
   };
 
   return (
@@ -30,10 +33,11 @@ const Product = ({ product, onSelectProduct, maximum }) => {
       <div className="p-6 pt-0">
         <button
           onClick={handleCompareClick}
-          className={isActive && !maximum ? "block w-full select-none rounded-lg bg-red-400 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-blue-gray-900 transition-all hover:scale-105 focus:scale-105 focus:opacity-[0.85] active:scale-100 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none" : "block w-full select-none rounded-lg bg-gray-200 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-blue-gray-900 transition-all hover:scale-105 focus:scale-105 focus:opacity-[0.85] active:scale-100 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"}
+          className={isActive && !max ? "block w-full select-none rounded-lg bg-red-400 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-blue-gray-900 transition-all hover:scale-105 focus:scale-105 focus:opacity-[0.85] active:scale-100 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none" : "block w-full select-none rounded-lg bg-gray-200 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-blue-gray-900 transition-all hover:scale-105 focus:scale-105 focus:opacity-[0.85] active:scale-100 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"}
           type="button"
+          disabled={max}
         >
-          {isActive && !maximum? 'remove compare': 'compare'}
+          {isActive && !max? 'remove compare': 'compare'}
         </button>
       </div>
     </div>
