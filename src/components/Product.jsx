@@ -11,6 +11,14 @@ const Product = ({ product, onSelectProduct, max }) => {
       setIsActive(!isActive)
      }
   };
+  const generateStars = (rating)=>{
+    var stars =' '
+    var i=0
+    for(i; i<rating; i++){
+      stars+=' ⭐'
+    }
+    return stars
+  }
 
   return (
     <div className="m-8 relative flex w-96 flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md ">
@@ -27,7 +35,7 @@ const Product = ({ product, onSelectProduct, max }) => {
           </p>
         </div>
         <p className="block font-sans text-sm font-normal leading-normal text-gray-700 antialiased opacity-75">
-        ⭐⭐⭐⭐⭐{product.rating}
+        {generateStars(product.rating)}{product.rating}
         </p>
       </div>
       <div className="p-6 pt-0">
