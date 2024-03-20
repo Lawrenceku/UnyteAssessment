@@ -1,13 +1,11 @@
-import { useState } from 'react'
-import './App.css'
-import SearchBar from './components/SearchBar'
+import ProductDashboard from './components/ProductDashboard'
 
 function App() {
 
   return (
     <>
-        <div >
-            <SearchBar/>
+        <div data-testid="product-dashboard">
+            <ProductDashboard/>
         </div>
     </>
   )
