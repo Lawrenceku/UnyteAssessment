@@ -8,19 +8,22 @@ const ProductDashboard = () => {
     const [searchItem, setSearchItem] = useState('');
     const [selectedProducts, setSelectedProducts] = useState([]);
     const [max, setMax] = useState(false)
+    const [isProductActive, setIsProductActive] = useState(false);
+
+    const handleProductActive = () => {
+      setIsProductActive(!isProductActive)
+    };
     
     const handleProductSelect = (product) => {
         const index = selectedProducts.findIndex((p) => p.id === product.id);
-    
+
         if (index === -1) {
           if (selectedProducts.length < 2) {
-            setMax(false)
             setSelectedProducts([...selectedProducts, product]);
           } else {
             alert("You can only compare up to 2 products.");
           }
         } else {
-          setMax(true)
           setSelectedProducts((prevSelectedProducts) =>
             prevSelectedProducts.filter((p) => p.id !== product.id)
           );
@@ -45,6 +48,7 @@ const ProductDashboard = () => {
           key={product.id}
           product={product}
           onSelectProduct={handleProductSelect}
+          resetActiveState={isProductActive} 
         />
       ))
     ) : (
@@ -71,6 +75,7 @@ const ProductDashboard = () => {
             onClick={event =>{
                  setSelectedProducts([]);
                   setMax(false); 
+                  handleProductActive()
                   document.body.style.overflow = 'auto';
                 }}
             className="absolute top-2 right-2 bg-slate-50 p-2 rounded-full text-gray-400 hover:text-gray-600 hover:scale-110 hover:bg-gray-50 duration-200"

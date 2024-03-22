@@ -1,8 +1,12 @@
 import React from "react";
 import { useState, useEffect } from "react";
 
-const Product = ({ product, onSelectProduct, maximum }) => {
-  const [isActive, setIsActive] = useState(false);
+const Product = ({ product, onSelectProduct, maximum, resetActiveState  }) => {
+  const [isActive, setIsActive] = useState(maximum);
+
+  useEffect( ()=>{
+     setIsActive(maximum)
+  },[resetActiveState])
 
   const handleCompareClick = () => {
     setIsActive(!isActive);
@@ -12,10 +16,6 @@ const Product = ({ product, onSelectProduct, maximum }) => {
 };
 
 
-/*     useEffect(() => {
-      setIsActive(maximum)
-    }, []);  */
-  
   const generateStars = (rating)=>{
     var stars =' '
     var i=0
