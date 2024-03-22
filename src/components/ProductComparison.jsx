@@ -1,9 +1,10 @@
 import React from "react";
+import '../productComparison.css'
 
 const ProductComparison = ({product}) => {
   
     return (
-      <div className="my-8 relative flex w-96 min-h-[100vh] flex-col bg-white bg-clip-border  text-gray-700 border-2 ">
+      <div className="my-8 relative flex w-96 min-h-[80vh] max-h-[120vh] flex-col bg-white bg-clip-border  text-gray-700 border-2 ">
         <div className="relative mx-4 mt-4 w-40 h-40 overflow-hidden rounded-xl bg-white bg-clip-border text-gray-700">
           <img src={product.image}  className="h-full w-full object-cover hover:scale-110 transition-transform duration-300" alt={product.name} />
         </div>
