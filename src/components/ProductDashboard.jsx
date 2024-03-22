@@ -114,12 +114,15 @@ const ProductDashboard = () => {
                         onChange={(event) => setInputSearch(event.target.value)}
                         type="search"
                         id="default-search"
+                        data-testid="search-bar"
                         className="block p-4 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-unyteGreen focus:border-[#5CC048] dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         placeholder="Search products..."
                         required
                         />                       
                         <button
-                        onClick={(event) => {
+                          className='search-button'
+                         data-testid="search-button"
+                          onClick={(event) => {
                             setSearchItem(inputSearch);
                             setSelectedProducts([]); // Reset selectedProducts when search is initiated
                             setMax(false); // Reset max state to false when search is initiated

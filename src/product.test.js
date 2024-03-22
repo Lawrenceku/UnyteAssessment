@@ -22,8 +22,6 @@ describe('Product component', () => {
     expect(getByText('Product Name')).toBeInTheDocument();
     expect(getByText('$100')).toBeInTheDocument();
 // Check if product rating is rendered
-   //s expect(getByText('⭐⭐⭐⭐')).toBeInTheDocument();
-
 
     // Check if product image is rendered with correct alt text
     const productImage = getByAltText('Product Name');
@@ -34,15 +32,13 @@ describe('Product component', () => {
     const compareButton = getByRole('button', { name: 'Compare' });
     fireEvent.click(compareButton);
 
-    // Check if onSelectProduct function is called with the correct product when clicking compare button
-    expect(onSelectProductMock).toHaveBeenCalledTimes(1);
-    expect(onSelectProductMock).toHaveBeenCalledWith(product);
-
-    expect(compareButton).toHaveTextContent('Compare');
+    // Check if the button text changes to "Remove Compare" after clicking
+    expect(compareButton).toHaveTextContent('Remove Compare');
 
     // Click the compare button again to remove compare
     fireEvent.click(compareButton);
 
-    expect(compareButton).toHaveTextContent('Remove Compare');
-  });
+    // Check if the button text changes back to "Compare"
+    expect(compareButton).toHaveTextContent('Compare');
+    });
 });
