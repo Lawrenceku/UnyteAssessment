@@ -1,5 +1,7 @@
 # Use an official Node.js runtime as the base image
-FROM node:14
+FROM node:latest
+
+#RUN mkdir -p /app
 
 # Set the working directory in the container
 WORKDIR /app
@@ -17,4 +19,4 @@ COPY . .
 EXPOSE 3000
 
 # Command to run the application
-CMD ["npm", "dev"]
+CMD [ "npm", "run", "dev" ]
