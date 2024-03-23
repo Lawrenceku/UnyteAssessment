@@ -4,19 +4,19 @@
 To run the unit tests for this project, follow these steps:
 
 1. Clone this repository to your local machine.
-Ensure that jest is installed on your system.
-Navigate to the project directory.
-Run the following command to execute the unit tests:
+2. Ensure that jest is installed on your system.
+3. Navigate to the project directory.
+4. Run the following command to execute the unit tests:
 
 ```npm run test```
 
 ### Running Docker:
 To run this application in a Docker container, follow these steps:
 
-Clone this repository to your local machine.
-Navigate to the project directory.
-Ensure Docker is installed and running on your system.
-Build the Docker image using the following command:
+1. Clone this repository to your local machine.
+2. Navigate to the project directory.
+3. Ensure Docker is installed and running on your system.
+4. Build the Docker image using the following command:
 
 ```docker build -t <image-name>```
 Once the image is built, run the Docker container with the following command:
