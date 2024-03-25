@@ -39,6 +39,9 @@ const Product = ({ product, onSelectProduct, maximum, resetActiveState  }) => {
             {product.price}
           </p>
         </div>
+        <p className="block h-8 truncate font-sans text-sm font-normal leading-normal text-gray-700 antialiased opacity-75">
+           {product.description}
+            </p>
         <p className="block font-sans text-sm font-normal leading-normal text-gray-700 antialiased opacity-75">
         {generateStars(product.rating)}{product.rating}
         </p>

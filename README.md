@@ -1,6 +1,6 @@
 # React + Vite
 
-##Running Vite:
+## Running Vite:
 To run this application using Vite, follow these steps:
 
 1. Clone this repository to your local machine.
@@ -12,7 +12,7 @@ To run this application using Vite, follow these steps:
 Start the Vite development server by running:
 npm run dev
 
-##Running Tests:
+## Running Tests:
 To run the unit tests for this project, follow these steps:
 
 1. Clone this repository to your local machine.
@@ -23,7 +23,7 @@ To run the unit tests for this project, follow these steps:
 
 ```npm run test```
 
-#Running Docker:
+# Running Docker:
 To run this application in a Docker container, follow these steps:
 
 1. Clone this repository to your local machine.
