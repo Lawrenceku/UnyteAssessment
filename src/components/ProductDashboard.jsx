@@ -62,11 +62,11 @@ const ProductDashboard = () => {
 
     {selectedProducts.length === 2  && ( 
       <>
-<div id="container" className="fixed inset-0  flex justify-center items-center z-20">
+<div id="container" className="fixed inset-0  flex justify-center overflow-scroll items-center z-20">
     <div className="absolute inset-0 bg-gray-900 opacity-90  z-10"></div>
 
-    <div className=" z-10 w-full overflow-auto">
-        <div className="flex justify-center items-start relative bg-white">
+    <div className=" z-10 w-full  ">
+        <div className="flex justify-center items-start relative  bg-white">
             {selectedProducts.map((product) => (
                 <ProductComparison key={product.id} product={product} />
             ))}
