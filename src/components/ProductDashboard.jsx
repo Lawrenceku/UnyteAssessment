@@ -33,6 +33,7 @@ const ProductDashboard = () => {
     // Filter products based on search criteria
     const filteredProducts = products.filter((product) => {
         return (
+          
             searchItem === '' ||
             product.name.toLowerCase().includes(searchItem.toLowerCase()) ||
             product.category.includes(searchItem.toLowerCase())
@@ -62,7 +63,7 @@ const ProductDashboard = () => {
 
     {selectedProducts.length === 2  && ( 
       <>
-<div id="container" className="fixed inset-0  flex justify-center overflow-scroll items-center z-20">
+<div id="container" className=" inset-0 fixed flex justify-center overflow-scroll items-center z-20">
     <div className="absolute inset-0 bg-gray-900 opacity-90  z-10"></div>
 
     <div className=" z-10 w-full  ">
@@ -77,7 +78,7 @@ const ProductDashboard = () => {
                  setSelectedProducts([]);
                   setMax(false); 
                   handleProductActive()
-                  document.body.style.overflow = 'auto';
+                  document.body.style.overflow = 'auto'  
                 }}
             className="absolute top-2 right-2 bg-slate-50 p-2 rounded-full text-gray-400 hover:text-gray-600 hover:scale-110 hover:bg-gray-50 duration-200"
         >
@@ -135,7 +136,7 @@ const ProductDashboard = () => {
             </div>
                 </div>
             </div>
-            <div className="flex flex-row flex-wrap justify-center md:items-start md:justify-between items">
+            <div className="flex flex-row flex-wrap justify-center md:items-start md:justify-around items">
                 {productsToRender}
             </div>
         </>
