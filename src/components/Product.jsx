@@ -15,15 +15,8 @@ const Product = ({ product, onSelectProduct, maximum, resetActiveState  }) => {
     }
 };
 
-
-  const generateStars = (rating)=>{
-    var stars =' '
-    var i=0
-    for(i; i<rating; i++){
-      stars+=' ⭐'
-    }
-    return stars
-  }
+  const maxStars = 5; // Maximum number of stars
+  const ratedStars = Math.min(product.rating, maxStars); // Determine the number of rated stars
 
   return (
     <div className="m-8 relative flex w-60 h-96 flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md ">
@@ -42,9 +35,10 @@ const Product = ({ product, onSelectProduct, maximum, resetActiveState  }) => {
         <p className="block h-8 truncate font-sans text-sm font-normal leading-normal text-gray-700 antialiased opacity-75">
            {product.description}
             </p>
-        <p className="block font-sans text-sm font-normal leading-normal text-gray-700 antialiased opacity-75">
-        {generateStars(product.rating)}{product.rating}
-        </p>
+            {[...Array(maxStars)].map((_, index) => (
+              <span key={index} className={`fa fa-star ${index < ratedStars ? 'text-[#FFA500]' : ''}`}></span>
+            ))}
+            <span className='ml-1 '>{product.rating}</span>
       </div>
       <div className="p-6 pt-0">
         <button
