@@ -65,8 +65,8 @@ const ProductDashboard = () => {
 <div id="container" className="fixed inset-0 flex justify-center items-center z-20">
     <div className="absolute inset-0 bg-gray-900 opacity-90  z-10"></div>
 
-    <div className="relative z-10 max-h-full w-full overflow-auto">
-        <div className="flex justify-center items-start ">
+    <div className="relative z-10 bg-red w-full overflow-auto">
+        <div className="flex justify-center items-start bg-white">
             {selectedProducts.map((product) => (
                 <ProductComparison key={product.id} product={product} />
             ))}
