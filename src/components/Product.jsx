@@ -19,7 +19,7 @@ const Product = ({ product, onSelectProduct, maximum, resetActiveState  }) => {
   const ratedStars = Math.min(product.rating, maxStars); // Determine the number of rated stars
 
   return (
-    <div className="m-8 relative flex  w-60 h-96 flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md ">
+    <div className="m-8  relative flex  w-60 h-96 flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md ">
       <div className="relative mx-4 mt-4 h-96 overflow-hidden rounded-xl bg-white bg-clip-border text-gray-700">
         <img src={product.image} className="h-full w-full object-cover hover:scale-110 transition-transform duration-300" alt={product.name} />
       </div>

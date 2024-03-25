@@ -73,6 +73,7 @@ const ProductDashboard = () => {
             ))}
         </div>
 
+
         <button
             onClick={event =>{
                  setSelectedProducts([]);
@@ -80,7 +81,7 @@ const ProductDashboard = () => {
                   handleProductActive()
                   document.body.style.overflow = 'auto'  
                 }}
-            className="absolute top-2 right-2 bg-slate-50 p-2 rounded-full text-gray-400 hover:text-gray-600 hover:scale-110 hover:bg-gray-50 duration-200"
+            className="fixed top-2 right-2 bg-slate-50 p-2 rounded-full text-gray-400 hover:text-gray-600 hover:scale-110 hover:bg-gray-50 duration-200"
         >
             <svg
                 className="w-6 h-6"
@@ -136,7 +137,7 @@ const ProductDashboard = () => {
             </div>
                 </div>
             </div>
-            <div className="flex flex-row flex-wrap justify-center md:items-start md:justify-around items">
+            <div id='product-container' className="  flex flex-row flex-wrap justify-center md:items-start md:justify-among items">
                 {productsToRender}
             </div>
         </>
